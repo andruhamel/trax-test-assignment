@@ -12,20 +12,20 @@ generator client {
 
 model StoreChain {
   id                     Int                      @id @default(autoincrement())
-  name                   String                   @db.VarChar(100)
+  name                   String                   @unique @db.VarChar(100)
   StoreChainCategoryLink StoreChainCategoryLink[]
 }
 
 model Category {
   id                     Int                      @id @default(autoincrement())
-  name                   String                   @db.VarChar(100)
+  name                   String                   @unique @db.VarChar(100)
   MLModel                MLModel[]
   StoreChainCategoryLink StoreChainCategoryLink[]
 }
 
 model MLModel {
   id         Int      @id @default(autoincrement())
-  url        String   @db.VarChar(100)
+  url        String   @unique @db.VarChar(100)
   createdAt  DateTime @default(now())
   categoryId Int
   category   Category @relation(fields: [categoryId], references: [id])
