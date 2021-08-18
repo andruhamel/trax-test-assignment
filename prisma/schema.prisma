@@ -19,11 +19,11 @@ model StoreChain {
 model Category {
   id                     Int                      @id @default(autoincrement())
   name                   String                   @unique @db.VarChar(100)
-  MLModel                MLModel[]
+  MlModel                MlModel[]
   StoreChainCategoryLink StoreChainCategoryLink[]
 }
 
-model MLModel {
+model MlModel {
   id         Int      @id @default(autoincrement())
   url        String   @unique @db.VarChar(100)
   createdAt  DateTime @default(now())

@@ -33,7 +33,7 @@ const seed = async () => {
   });
 
   // create MLModels for categories
-  await prisma.mLModel.createMany({
+  await prisma.mlModel.createMany({
     data: [
       {
         categoryId: categoryBiscuits.id,
