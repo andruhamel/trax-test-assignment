@@ -13,6 +13,7 @@ import {
 import { StoreChainService } from './store-chain.service';
 import { PrismaExceptionFilter } from '../exception-filters/prisma-exception.filter';
 import { CategoryService } from '../category/category.service';
+import { ApiBody } from '@nestjs/swagger';
 
 @Controller('store-chain')
 @UseFilters(PrismaExceptionFilter)
@@ -41,11 +42,19 @@ export class StoreChainController {
   }
 
   @Post()
+  @ApiBody({
+    type: 'object',
+    schema: { properties: { name: { type: 'string' } } },
+  })
   create(@Body('name') name: string) {
     return this.storeChainService.create(name);
   }
 
   @Put(':id')
+  @ApiBody({
+    type: 'object',
+    schema: { properties: { name: { type: 'string' } } },
+  })
   update(@Param('id', ParseIntPipe) id: number, @Body('name') name: string) {
     return this.storeChainService.update(id, name);
   }

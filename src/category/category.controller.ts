@@ -12,6 +12,7 @@ import {
 } from '@nestjs/common';
 import { PrismaExceptionFilter } from '../exception-filters/prisma-exception.filter';
 import { CategoryService } from './category.service';
+import { ApiBody } from '@nestjs/swagger';
 
 @Controller('category')
 @UseFilters(PrismaExceptionFilter)
@@ -37,11 +38,19 @@ export class CategoryController {
   }
 
   @Post()
+  @ApiBody({
+    type: 'object',
+    schema: { properties: { name: { type: 'string' } } },
+  })
   create(@Body('name') name: string) {
     return this.categoryService.create(name);
   }
 
   @Put(':id')
+  @ApiBody({
+    type: 'object',
+    schema: { properties: { name: { type: 'string' } } },
+  })
   update(@Param('id', ParseIntPipe) id: number, @Body('name') name: string) {
     return this.categoryService.update(id, name);
   }
