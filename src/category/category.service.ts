@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Category, PrismaClient } from '@prisma/client';
+import { Category, MlModel, PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class CategoryService {
@@ -17,6 +17,23 @@ export class CategoryService {
 
   getAll(take: number, skip: number): Promise<Array<Category>> {
     return this.db.category.findMany({ take, skip });
+  }
+
+  getLatestModel(id: number): Promise<MlModel> {
+    return this.db.mlModel.findFirst({
+      where: { categoryId: id },
+      orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
+    });
+  }
+
+  getByStore(storeId: number): Promise<Array<Category>> {
+    return this.db.category.findMany({
+      where: {
+        StoreChainCategoryLink: {
+          some: { storeChainId: storeId },
+        },
+      },
+    });
   }
 
   create(name: string): Promise<Category> {

@@ -12,15 +12,24 @@ import {
 } from '@nestjs/common';
 import { StoreChainService } from './store-chain.service';
 import { PrismaExceptionFilter } from '../exception-filters/prisma-exception.filter';
+import { CategoryService } from '../category/category.service';
 
 @Controller('store-chain')
 @UseFilters(PrismaExceptionFilter)
 export class StoreChainController {
-  constructor(private storeChainService: StoreChainService) {}
+  constructor(
+    private storeChainService: StoreChainService,
+    private categoryService: CategoryService,
+  ) {}
 
   @Get(':id')
   get(@Param('id', ParseIntPipe) id: number) {
     return this.storeChainService.get(id);
+  }
+
+  @Get(':id/category')
+  getCategories(@Param('id', ParseIntPipe) id: number) {
+    return this.categoryService.getByStore(id);
   }
 
   @Get()

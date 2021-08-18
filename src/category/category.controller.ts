@@ -31,6 +31,11 @@ export class CategoryController {
     return this.categoryService.getAll(take, skip);
   }
 
+  @Get(':id/model/latest')
+  getLatestModel(@Param('id', ParseIntPipe) id: number) {
+    return this.categoryService.getLatestModel(id);
+  }
+
   @Post()
   create(@Body('name') name: string) {
     return this.categoryService.create(name);
