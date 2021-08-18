@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model StoreChain {
+  id                     Int                      @id @default(autoincrement())
+  name                   String                   @db.VarChar(100)
+  StoreChainCategoryLink StoreChainCategoryLink[]
+}
+
+model Category {
+  id                     Int                      @id @default(autoincrement())
+  name                   String                   @db.VarChar(100)
+  MLModel                MLModel[]
+  StoreChainCategoryLink StoreChainCategoryLink[]
+}
+
+model MLModel {
+  id         Int      @id @default(autoincrement())
+  url        String   @db.VarChar(100)
+  createdAt  DateTime @default(now())
+  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [id])
+}
+
+model StoreChainCategoryLink {
+  id           Int        @id @default(autoincrement())
+  storeChainId Int
+  storeChain   StoreChain @relation(fields: [storeChainId], references: [id])
+  categoryId   Int
+  category     Category   @relation(fields: [categoryId], references: [id])
+  assignedAt   DateTime   @default(now())
+
+  @@unique([storeChainId, categoryId])
+}
