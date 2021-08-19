@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  db:
+    ports:
+      - '5432:5432'
+
+  db-migrator:
+    build:
+      dockerfile: docker/db-migrator/Dockerfile
+      context: .
+    image: trax-db-migrator:1.0
+    depends_on:
+      - db
+    env_file:
+      - docker/db-migrator/.env

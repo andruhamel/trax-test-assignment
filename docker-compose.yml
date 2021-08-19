@@ -4,8 +4,17 @@ services:
   db:
     image: postgres
     restart: always
-    environment:
-      POSTGRES_PASSWORD: secret
-      POSTGRES_DB: trax
+    env_file:
+      - docker/db/.env
+
+  api:
+    build:
+      dockerfile: docker/api/Dockerfile
+      context: .
+    image: trax-api:1.0
+    depends_on:
+      - db
+    env_file:
+      - docker/api/.env
     ports:
-      - "5432:5432"
+      - '3000:3000'
