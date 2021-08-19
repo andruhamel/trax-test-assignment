@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "88b1f4fa-8f36-4aa3-9cf6-5e19ac72e0e8",
+		"name": "MLModel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/ml-model?take=10&skip=0",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"ml-model"
+					],
+					"query": [
+						{
+							"key": "take",
+							"value": "10"
+						},
+						{
+							"key": "skip",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/ml-model/1",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"ml-model",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\": \"http://localhost:8080/model/biscuits-21\",\n    \"categoryId\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/ml-model",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"ml-model"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\": \"http://localhost:8080/model/biscuits-212\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/ml-model/6",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"ml-model",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "linkToCategory",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\": \"http://localhost:8080/model/biscuits-212\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/ml-model/5/linkToCategory/1",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"ml-model",
+						"5",
+						"linkToCategory",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Nike 456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/ml-model/6",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"ml-model",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

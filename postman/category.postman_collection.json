@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "768558ca-dc6c-4680-ae45-8e856969306b",
+		"name": "category",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/category?take=10&skip=0",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"category"
+					],
+					"query": [
+						{
+							"key": "take",
+							"value": "10"
+						},
+						{
+							"key": "skip",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/category/1",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"category",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLatestModel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/category/1/model/latest",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"category",
+						"1",
+						"model",
+						"latest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Fruits\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/category",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Vegetables\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/category/5",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"category",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Nike 456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/category/5",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"category",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

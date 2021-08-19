@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "0e045efc-6e21-4bae-bc2a-3b467ef79c35",
+		"name": "store-chain",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/store-chain?take=10&skip=0",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"store-chain"
+					],
+					"query": [
+						{
+							"key": "take",
+							"value": "10"
+						},
+						{
+							"key": "skip",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/store-chain/1",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"store-chain",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCategories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/store-chain/1/category",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"store-chain",
+						"1",
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Auchan\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/store-chain",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"store-chain"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Nike 456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/store-chain/9",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"store-chain",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Nike 456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/store-chain/9",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"store-chain",
+						"9"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
